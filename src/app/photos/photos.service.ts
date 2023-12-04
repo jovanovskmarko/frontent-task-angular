@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IPhotos } from './photos';
-import { Observable, catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({

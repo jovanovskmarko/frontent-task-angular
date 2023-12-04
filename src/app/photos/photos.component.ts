@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { IPhotos } from './photos';
 
 @Component({
-  selector: 'app-photos',
   templateUrl: './photos.component.html',
   styleUrl: './photos.component.css',
 })
@@ -23,5 +22,9 @@ export class PhotosComponent implements OnInit {
       },
       error: (err) => (this.errorMessage = err),
     });
+  }
+
+  funkcija(): void {
+    console.log('rabote');
   }
 }
