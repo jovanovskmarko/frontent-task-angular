@@ -18,9 +18,9 @@ To run the Micro Instagram locally, follow these steps:
    git clone https://github.com/jovanovskmarko/frontent-task-no-standalone.git
    ```
 
-## Run the app
+2. **Run the app:**
 
-Run `npm start`. The application will automatically reload if you change any of the source files.
+   Run `npm start`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
