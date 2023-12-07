@@ -5,14 +5,14 @@
 
   <div class="row text-center">
     <div class="col-lg-3 col-md-4 col-6" *ngFor="let photo of photos">
-      <a [routerLink]="['/photos', photo.id]" class="d-block mb-4 h-100">
+      <a [routerLink]="['/photos', photo.id]" class="mb-4 h-100">
         <img
           class="img-fluid img-thumbnail"
-          [src]="photo.url"
+          [src]="photo.thumbnailUrl"
           [alt]="photo.title"
-          (click)="funkcija()"
         />
       </a>
+      {{ photo.title }}
     </div>
   </div>
 </div>

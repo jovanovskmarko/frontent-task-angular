@@ -1,5 +1,25 @@
-<div class="container">
-  <h2 class="fw-light text-center text-lg-start mt-4 mb-0">
+<div class="container" *ngIf="img">
+  <h1 class="fw-light text-center mt-4 mb-0">
     {{ pageTitle }}
-  </h2>
+  </h1>
+  <div class="text-center">
+    <img class="img-fluid img-thumbnail" [src]="img.url" [alt]="img.title" />
+    <div>
+      <a
+        class="btn btn-primary mb-2 mt-2"
+        type="submit"
+        [routerLink]="['/photos', img.id, 'edit']"
+        >Edit</a
+      >
+      <app-dialog></app-dialog>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
 </div>

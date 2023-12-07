@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { IPhotos } from './photos';
+import { PhotosService } from './photos.service';
 
 @Component({
-  selector: 'app-photos-detail',
   templateUrl: './photos-detail.component.html',
-  styleUrl: './photos-detail.component.css',
 })
 export class PhotosDetailComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router) {}
-  pageTitle: string = 'Photo ';
-  imgUrl: string = '';
+  constructor(private route: ActivatedRoute, private service: PhotosService) {}
+  pageTitle: string = '';
+  img: IPhotos | undefined;
+  id: number = 0;
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-
-    this.pageTitle += id + ' Detail';
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.service.getProductByID(this.id).subscribe({
+      next: (result) => {
+        this.img = result;
+      },
+    });
   }
 }

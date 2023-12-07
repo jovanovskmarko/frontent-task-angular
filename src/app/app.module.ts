@@ -8,16 +8,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { PhotosDetailComponent } from './photos/photos-detail.component';
+import { EditComponent } from './shared/edit.component';
+import { DialogComponent } from './shared/dialog/dialog.component';
 
 const routes: Routes = [
   { path: 'photos', component: PhotosComponent },
   { path: 'photos/:id', component: PhotosDetailComponent },
+  { path: 'photos/:id/edit', component: EditComponent },
   { path: '', redirectTo: 'photos', pathMatch: 'full' },
   { path: '**', redirectTo: 'photos', pathMatch: 'full' },
 ];
 
 @NgModule({
-  declarations: [AppComponent, PhotosComponent, PhotosDetailComponent],
+  declarations: [
+    AppComponent,
+    PhotosComponent,
+    PhotosDetailComponent,
+    EditComponent,
+    DialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

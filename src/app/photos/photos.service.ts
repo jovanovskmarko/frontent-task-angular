@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IPhotos } from './photos';
-import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
@@ -13,10 +13,20 @@ export class PhotosService {
     'https://jsonplaceholder.typicode.com/albums/1/photos';
 
   getProducts(): Observable<IPhotos[]> {
-    return this.http.get<IPhotos[]>(this.apiUrl).pipe(
-      tap((data) => console.log('All ', JSON.stringify(data))),
-      catchError(this.handleError)
-    );
+    return this.http
+      .get<IPhotos[]>(this.apiUrl)
+      .pipe(catchError(this.handleError));
+  }
+
+  getProductByID(id: number): Observable<IPhotos> {
+    return this.http
+      .get<IPhotos>(`https://jsonplaceholder.typicode.com/photos/${id}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  deletePhoto(photoId: number): Observable<void> {
+    const deleteUrl = `https://jsonplaceholder.typicode.com/photos/${photoId}`;
+    return this.http.delete<void>(deleteUrl).pipe(catchError(this.handleError));
   }
 
   handleError(err: HttpErrorResponse) {

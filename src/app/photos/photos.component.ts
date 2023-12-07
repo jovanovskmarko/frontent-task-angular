@@ -5,7 +5,6 @@ import { IPhotos } from './photos';
 
 @Component({
   templateUrl: './photos.component.html',
-  styleUrl: './photos.component.css',
 })
 export class PhotosComponent implements OnInit {
   constructor(private photoService: PhotosService) {}
@@ -22,9 +21,5 @@ export class PhotosComponent implements OnInit {
       },
       error: (err) => (this.errorMessage = err),
     });
-  }
-
-  funkcija(): void {
-    console.log('rabote');
   }
 }
