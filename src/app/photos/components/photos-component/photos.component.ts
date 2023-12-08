@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PhotosService } from './photos.service';
+import { PhotosService } from '../../service/photos.service';
 import { Subscription } from 'rxjs';
-import { IPhotos } from './photos';
+import { IPhotos } from '../../interfaces/photos';
 
 @Component({
   templateUrl: './photos.component.html',

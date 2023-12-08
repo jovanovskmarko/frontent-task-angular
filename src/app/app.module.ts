@@ -3,21 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PhotosComponent } from './photos/photos.component';
+import { PhotosComponent } from './photos/components/photos-component/photos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
-import { PhotosDetailComponent } from './photos/photos-detail.component';
-import { EditComponent } from './shared/edit.component';
-import { DialogComponent } from './shared/dialog/dialog.component';
-
-const routes: Routes = [
-  { path: 'photos', component: PhotosComponent },
-  { path: 'photos/:id', component: PhotosDetailComponent },
-  { path: 'photos/:id/edit', component: EditComponent },
-  { path: '', redirectTo: 'photos', pathMatch: 'full' },
-  { path: '**', redirectTo: 'photos', pathMatch: 'full' },
-];
+import { PhotosDetailComponent } from './photos/components/photos-detail/photos-detail.component';
+import { EditComponent } from './shared/components/form/edit.component';
+import { DialogComponent } from './shared/components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +18,7 @@ const routes: Routes = [
     EditComponent,
     DialogComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    RouterModule.forRoot(routes),
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
   providers: [],
   bootstrap: [AppComponent],
 })

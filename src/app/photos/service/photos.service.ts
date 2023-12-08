@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IPhotos } from './photos';
+import { IPhotos } from '../interfaces/photos';
 import { Observable, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 

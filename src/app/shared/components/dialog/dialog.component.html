@@ -1,0 +1,13 @@
+<div id="container">
+  <div id="header">Please confirm!</div>
+  <div id="content">Are you sure you want to delete this image?</div>
+  <div id="actions">
+    <button
+      class="btn btn-secondary"
+      (click)="generalService.showModal = false"
+    >
+      No
+    </button>
+    <button class="btn btn-primary" (click)="onDelete()">Yes</button>
+  </div>
+</div>

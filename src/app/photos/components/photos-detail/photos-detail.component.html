@@ -11,15 +11,11 @@
         [routerLink]="['/photos', img.id, 'edit']"
         >Edit</a
       >
-      <app-dialog></app-dialog>
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
+      <button (click)="generalService.showModal = true" class="btn btn-danger">
         Delete
       </button>
     </div>
   </div>
 </div>
+
+<app-dialog *ngIf="generalService.showModal"></app-dialog>
