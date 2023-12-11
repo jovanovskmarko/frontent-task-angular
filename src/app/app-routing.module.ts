@@ -6,6 +6,7 @@ import { EditComponent } from './shared/components/form/edit.component';
 
 const routes: Routes = [
   { path: 'photos', component: PhotosComponent },
+  { path: 'photos/upload', component: EditComponent },
   { path: 'photos/:id', component: PhotosDetailComponent },
   { path: 'photos/:id/edit', component: EditComponent },
   { path: '', redirectTo: 'photos', pathMatch: 'full' },

@@ -29,6 +29,23 @@ export class PhotosService {
     return this.http.delete<void>(deleteUrl).pipe(catchError(this.handleError));
   }
 
+  uploadPhoto(photo: IPhotos): Observable<IPhotos> {
+    return this.http
+      .post<IPhotos>(this.apiUrl, photo)
+      .pipe(catchError(this.handleError));
+  }
+
+  editPhoto(
+    photoId: number,
+    updatedPhoto: Partial<IPhotos>
+  ): Observable<IPhotos> {
+    const editUrl = `https://jsonplaceholder.typicode.com/photos/${photoId}`;
+
+    return this.http
+      .patch<IPhotos>(editUrl, updatedPhoto)
+      .pipe(catchError(this.handleError));
+  }
+
   handleError(err: HttpErrorResponse) {
     let errMessage = '';
     if (err.error instanceof ErrorEvent) {

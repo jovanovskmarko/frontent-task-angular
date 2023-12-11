@@ -1,5 +1,8 @@
 <div class="container">
   <h1 class="fw-light text-center mt-4 mb-0">Mini Instagram</h1>
+  <div class="">
+    <a class="btn btn-primary" [routerLink]="['/photos/upload']">Upload</a>
+  </div>
 
   <hr class="mt-2 mb-5" />
 
@@ -12,7 +15,7 @@
           [alt]="photo.title"
         />
       </a>
-      {{ photo.title }}
+      title
     </div>
   </div>
 </div>

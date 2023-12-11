@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { PhotosDetailComponent } from './photos/components/photos-detail/photos-detail.component';
 import { EditComponent } from './shared/components/form/edit.component';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,13 @@ import { DialogComponent } from './shared/components/dialog/dialog.component';
     EditComponent,
     DialogComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
