@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-  AfterViewInit,
-  OnDestroy,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { PhotosService } from '../../../photos/service/photos.service';
 import { Router } from '@angular/router';
 import { GeneralService } from '../../service/general/general.service';
@@ -14,8 +8,7 @@ import { GeneralService } from '../../service/general/general.service';
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.css',
 })
-export class DialogComponent implements AfterViewInit {
-  @ViewChild('modal') modal!: ElementRef;
+export class DialogComponent {
   id: number = 1;
 
   constructor(
@@ -23,8 +16,6 @@ export class DialogComponent implements AfterViewInit {
     private router: Router,
     public generalService: GeneralService
   ) {}
-
-  ngAfterViewInit(): void {}
 
   onDelete(): void {
     this.photosService.deletePhoto(this.id).subscribe({

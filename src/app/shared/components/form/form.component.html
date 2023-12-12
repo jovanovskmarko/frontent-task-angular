@@ -6,12 +6,12 @@
         <input
           type="text"
           class="form-control"
-          id="exampleFormControlInput1"
           placeholder="Title"
           name="title"
-          ngModel
-          [value]="imgObject?.title"
+          [(ngModel)]="imgObject.title"
+          #titleInput
         />
+        <!-- napraj gi required //card?-->
       </div>
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label"
@@ -20,11 +20,10 @@
         <input
           type="text"
           class="form-control"
-          id="exampleFormControlInput1"
           placeholder="Url"
-          name="imgUrl"
-          ngModel
-          [value]="imgObject?.url"
+          name="url"
+          [(ngModel)]="imgObject.url"
+          #urlInput
         />
       </div>
       <div class="mb-3">
@@ -34,11 +33,10 @@
         <input
           type="text"
           class="form-control"
-          id="exampleFormControlInput1"
           placeholder="Thumbnail"
-          name="imgThumbnail"
-          ngModel
-          [value]="imgObject?.thumbnailUrl"
+          name="thumbnailUrl"
+          [(ngModel)]="imgObject.thumbnailUrl"
+          #thumbnailUrlInput
         />
       </div>
     </div>

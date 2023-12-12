@@ -13,7 +13,7 @@ export class PhotosDetailComponent implements OnInit, OnDestroy {
     private service: PhotosService,
     public generalService: GeneralService
   ) {}
-  pageTitle: string = '';
+
   img: IPhotos | undefined;
   id: number = 0;
 

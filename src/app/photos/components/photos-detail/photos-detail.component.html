@@ -1,7 +1,5 @@
 <div class="container" *ngIf="img">
-  <h1 class="fw-light text-center mt-4 mb-0">
-    {{ pageTitle }}
-  </h1>
+  <h1 class="fw-light text-center mt-4 mb-0"></h1>
   <div class="text-center">
     <img class="img-fluid img-thumbnail" [src]="img.url" [alt]="img.title" />
     <div>
@@ -17,5 +15,4 @@
     </div>
   </div>
 </div>
-
 <app-dialog *ngIf="generalService.showModal"></app-dialog>

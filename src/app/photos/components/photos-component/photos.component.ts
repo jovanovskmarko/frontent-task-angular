@@ -12,7 +12,6 @@ export class PhotosComponent implements OnInit {
   subscription: Subscription | undefined;
   photos: IPhotos[] = [];
   errorMessage: string = '';
-  title: string = 'Mini Instagram';
 
   ngOnInit(): void {
     this.subscription = this.photoService.getProducts().subscribe({

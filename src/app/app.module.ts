@@ -7,7 +7,7 @@ import { PhotosComponent } from './photos/components/photos-component/photos.com
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { PhotosDetailComponent } from './photos/components/photos-detail/photos-detail.component';
-import { EditComponent } from './shared/components/form/edit.component';
+import { FormComponent } from './shared/components/form/form.component';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { FormsModule } from '@angular/forms';
 
@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     PhotosComponent,
     PhotosDetailComponent,
-    EditComponent,
+    FormComponent,
     DialogComponent,
   ],
   imports: [
