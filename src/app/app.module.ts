@@ -10,6 +10,8 @@ import { PhotosDetailComponent } from './photos/components/photos-detail/photos-
 import { FormComponent } from './shared/components/form/form.component';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     CommonModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

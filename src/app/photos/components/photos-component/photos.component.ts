@@ -5,6 +5,7 @@ import { IPhotos } from '../../interfaces/photos';
 
 @Component({
   templateUrl: './photos.component.html',
+  styleUrl: './photos.component.css',
 })
 export class PhotosComponent implements OnInit {
   constructor(private photoService: PhotosService) {}
@@ -14,11 +15,11 @@ export class PhotosComponent implements OnInit {
   errorMessage: string = '';
 
   ngOnInit(): void {
-    this.subscription = this.photoService.getProducts().subscribe({
+    this.subscription = this.photoService.loadPhotos().subscribe({
       next: (photos) => {
         this.photos = photos;
       },
-      error: (err) => (this.errorMessage = err),
+      error: (err) => console.log('Error loading photos ', err.errorMessage),
     });
   }
 }

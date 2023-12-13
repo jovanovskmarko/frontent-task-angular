@@ -1,4 +1,4 @@
-<div class="container" *ngIf="img">
+<!-- <div class="container" *ngIf="img">
   <h1 class="fw-light text-center mt-4 mb-0"></h1>
   <div class="text-center">
     <img class="img-fluid img-thumbnail" [src]="img.url" [alt]="img.title" />
@@ -14,5 +14,34 @@
       </button>
     </div>
   </div>
+</div>
+<app-dialog *ngIf="generalService.showModal"></app-dialog> -->
+<div class="container" *ngIf="img">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Photo: {{ img.id }}</mat-card-title>
+      <mat-card-subtitle>Album: {{ img.albumId }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="img.url" alt="Photo" />
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz
+        breeds of dog from Japan. A small, agile dog that copes very well with
+        mountainous terrain, the Shiba Inu was originally bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button
+        mat-button
+        color="primary"
+        [routerLink]="['/photos', img.id, 'edit']"
+      >
+        EDIT
+      </button>
+      <button mat-button color="warn" (click)="generalService.showModal = true">
+        DELETE
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </div>
 <app-dialog *ngIf="generalService.showModal"></app-dialog>

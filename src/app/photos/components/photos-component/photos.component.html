@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <h1 class="fw-light text-center mt-4 mb-0">Mini Instagram</h1>
   <div class="text-end">
     <a class="btn btn-primary" [routerLink]="['/photos/upload']"
@@ -20,4 +20,25 @@
       title
     </div>
   </div>
+</div> -->
+<div class="container">
+  <mat-card class="example-card" *ngFor="let photo of photos">
+    <mat-card-header>
+      <mat-card-title>Photo {{ photo.id }}</mat-card-title>
+      <mat-card-subtitle>Album: {{ photo.albumId }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img
+      class="image"
+      mat-card-image
+      [src]="photo.url"
+      alt="Photo of a Shiba Inu"
+      [routerLink]="['/photos', photo.id]"
+    />
+    <mat-card-content class="content">
+      <p>
+        {{ photo.title }}
+      </p>
+    </mat-card-content>
+  </mat-card>
 </div>

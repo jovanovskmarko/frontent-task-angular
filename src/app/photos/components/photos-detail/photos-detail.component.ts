@@ -6,6 +6,7 @@ import { GeneralService } from '../../../shared/service/general/general.service'
 
 @Component({
   templateUrl: './photos-detail.component.html',
+  styleUrl: './photos-detail.component.css',
 })
 export class PhotosDetailComponent implements OnInit, OnDestroy {
   constructor(
@@ -19,7 +20,7 @@ export class PhotosDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.service.getProductByID(this.id).subscribe({
+    this.service.getPhotoByID(this.id).subscribe({
       next: (result) => {
         this.img = result;
       },

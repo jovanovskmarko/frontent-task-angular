@@ -12,13 +12,13 @@ export class PhotosService {
   private apiUrl: string =
     'https://jsonplaceholder.typicode.com/albums/1/photos';
 
-  getProducts(): Observable<IPhotos[]> {
+  loadPhotos(): Observable<IPhotos[]> {
     return this.http
       .get<IPhotos[]>(this.apiUrl)
       .pipe(catchError(this.handleError));
   }
 
-  getProductByID(id: number): Observable<IPhotos> {
+  getPhotoByID(id: number): Observable<IPhotos> {
     return this.http
       .get<IPhotos>(`https://jsonplaceholder.typicode.com/photos/${id}`)
       .pipe(catchError(this.handleError));

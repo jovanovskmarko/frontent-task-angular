@@ -19,7 +19,8 @@ export class DialogComponent {
 
   onDelete(): void {
     this.photosService.deletePhoto(this.id).subscribe({
-      next: () => {
+      next: (result) => {
+        console.log(result);
         this.generalService.showModal = false;
         this.router.navigate(['/photos']);
       },

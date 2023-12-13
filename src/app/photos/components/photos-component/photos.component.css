@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.example-card {
+    max-width: 400px;
+    margin-bottom: 40px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .image {
+    cursor: pointer;
+  }
+  
+  .content {
+    padding-top: 5px
+  }
