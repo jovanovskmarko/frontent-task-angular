@@ -38,10 +38,7 @@
       >
         EDIT
       </button>
-      <button mat-button color="warn" (click)="generalService.showModal = true">
-        DELETE
-      </button>
+      <button mat-button color="warn" (click)="openDialog()">DELETE</button>
     </mat-card-actions>
   </mat-card>
 </div>
-<app-dialog *ngIf="generalService.showModal"></app-dialog>

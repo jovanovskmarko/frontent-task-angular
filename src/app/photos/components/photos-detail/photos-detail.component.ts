@@ -1,8 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IPhotos } from '../../interfaces/photos';
 import { PhotosService } from '../../service/photos.service';
 import { GeneralService } from '../../../shared/service/general/general.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PhotoDetailsDialog } from '../photos-dialog/photos-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   templateUrl: './photos-detail.component.html',
@@ -12,8 +15,15 @@ export class PhotosDetailComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private service: PhotosService,
-    public generalService: GeneralService
+    public generalService: GeneralService,
+    public dialog: MatDialog
   ) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(PhotoDetailsDialog, {
+      data: { id: this.id },
+    });
+  }
 
   img: IPhotos | undefined;
   id: number = 0;

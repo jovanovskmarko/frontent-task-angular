@@ -12,15 +12,12 @@ import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NavMenuComponent } from './photos/components/nav-menu/nav-menu.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PhotosComponent,
-    PhotosDetailComponent,
-    FormComponent,
-    DialogComponent,
-  ],
+  declarations: [AppComponent, PhotosDetailComponent, DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +26,8 @@ import { MaterialModule } from './shared/material.module';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    MatDialogModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

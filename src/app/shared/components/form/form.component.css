@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .custom-form {
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #ddd; /* Change the border color as needed */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .custom-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  
+  .custom-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  .custom-input.ng-invalid {
+    border-color: #ff0000;
+  }
+  
