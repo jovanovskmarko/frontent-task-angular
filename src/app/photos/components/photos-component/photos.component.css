@@ -7,7 +7,6 @@ margin-top: 10px;
   width: 100%; /* Adjust the max-width as needed */
   display: flex;
   justify-content: center;
-
 }
 
 .grid {
@@ -16,13 +15,18 @@ margin-top: 10px;
   gap: 50px;
 }
 
-.example-card {
-  max-width: 150px;
+.card {
+  max-width: 250px;
   margin-bottom: 40px;
+  display: flex;
+
+  align-items: center;
 }
 
 .image {
   cursor: pointer;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .content {

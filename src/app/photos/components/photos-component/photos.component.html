@@ -1,7 +1,7 @@
 <div class="container">
   <div class="image-container">
     <div class="grid">
-      <mat-card class="example-card" *ngFor="let photo of photos">
+      <mat-card class="card" *ngFor="let photo of photos">
         <mat-card-header>
           <mat-card-title>Photo {{ photo.id }}</mat-card-title>
           <mat-card-subtitle>Album: {{ photo.albumId }}</mat-card-subtitle>
@@ -11,7 +11,7 @@
           class="image"
           mat-card-image
           [src]="photo.thumbnailUrl"
-          alt="Photo of a Shiba Inu"
+          alt="photo"
           [routerLink]="['/photos', photo.id]"
         />
         <mat-card-content class="content">
