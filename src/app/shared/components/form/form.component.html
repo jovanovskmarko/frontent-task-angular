@@ -43,7 +43,7 @@
   </form>
 </div> -->
 <div class="container">
-  <form #form="ngForm" class="custom-form" (ngSubmit)="onSubmit()">
+  <form #form="ngForm" class="custom-form" (ngSubmit)="onSubmit(form)">
     <h2 class="form-title">{{ title }}</h2>
     <mat-form-field class="custom-form-field">
       <mat-label class="custom-label">Image Title</mat-label>

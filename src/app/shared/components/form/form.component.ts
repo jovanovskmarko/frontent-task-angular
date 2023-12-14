@@ -5,9 +5,10 @@ import { IPhotos } from '../../../photos/interfaces/photos';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   templateUrl: './form.component.html',
@@ -20,6 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     MatIconModule,
     MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
 })
 export class FormComponent implements OnInit {
@@ -51,20 +54,22 @@ export class FormComponent implements OnInit {
     }
   }
 
-  onSubmit(): void {
-    console.log('called');
-    if (this.id) {
-      this.service.editPhoto(this.id, this.imgObject).subscribe({
-        next: (result) => console.log(result),
-        error: (error) => console.error('Error updating photo:', error.message),
-      });
-    } else {
-      this.service.uploadPhoto(this.imgObject).subscribe({
-        next: (result) => console.log(result),
-        error: (error) => console.log('Error uploading photo', error.message),
-      });
-    }
+  onSubmit(form: NgForm): void {
+    if (form.valid) {
+      if (this.id) {
+        this.service.editPhoto(this.id, this.imgObject).subscribe({
+          next: (result) => console.log(result),
+          error: (error) =>
+            console.error('Error updating photo:', error.message),
+        });
+      } else {
+        this.service.uploadPhoto(this.imgObject).subscribe({
+          next: (result) => console.log(result),
+          error: (error) => console.log('Error uploading photo', error.message),
+        });
+      }
 
-    this.router.navigate(['/photos']);
+      this.router.navigate(['/photos']);
+    }
   }
 }
