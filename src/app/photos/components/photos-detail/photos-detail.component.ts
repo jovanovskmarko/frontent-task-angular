@@ -5,7 +5,6 @@ import { PhotosService } from '../../service/photos.service';
 import { GeneralService } from '../../../shared/service/general/general.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoDetailsDialog } from '../photos-dialog/photos-dialog.component';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   templateUrl: './photos-detail.component.html',
