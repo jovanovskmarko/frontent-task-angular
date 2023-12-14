@@ -8,7 +8,6 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 
 @Component({
   templateUrl: './photos.component.html',
@@ -21,7 +20,6 @@ import { NavMenuComponent } from '../nav-menu/nav-menu.component';
     RouterModule,
     CommonModule,
     MatButtonModule,
-    NavMenuComponent,
   ],
 })
 export class PhotosComponent implements OnInit {

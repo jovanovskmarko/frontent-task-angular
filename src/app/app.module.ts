@@ -28,6 +28,7 @@ import { NavMenuComponent } from './photos/components/nav-menu/nav-menu.componen
     MaterialModule,
     MatDialogModule,
     MatFormFieldModule,
+    NavMenuComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
