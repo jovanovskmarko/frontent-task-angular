@@ -1,25 +1,30 @@
-.image-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+.container {
+margin-top: 10px;
+
 }
+
+.image-container {
+  width: 100%; /* Adjust the max-width as needed */
+  display: flex;
+  justify-content: center;
+
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Display three columns */
+  gap: 50px;
+}
+
 .example-card {
-    max-width: 400px;
-    margin-bottom: 40px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+  max-width: 150px;
+  margin-bottom: 40px;
+}
 
-  .image {
-    cursor: pointer;
-  }
-  
-  .content {
-    padding-top: 5px
-  }
+.image {
+  cursor: pointer;
+}
 
+.content {
+  padding-top: 5px;
+}
