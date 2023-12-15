@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotosService } from '../../../photos/service/photos.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IPhotos } from '../../../photos/interfaces/photos';
+import { IPhoto } from '../../../photos/interfaces/photo';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -26,7 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
 })
 export class FormComponent implements OnInit {
-  imgObject: IPhotos = {
+  imgObject: IPhoto = {
     title: '',
     url: '',
     thumbnailUrl: '',
@@ -48,7 +48,6 @@ export class FormComponent implements OnInit {
     if (this.id) {
       this.service.getPhotoByID(this.id).subscribe({
         next: (image) => (this.imgObject = { ...image }),
-        error: (error) => console.log(error.message),
       });
       this.title = 'Edit image';
     }
@@ -57,18 +56,10 @@ export class FormComponent implements OnInit {
   onSubmit(form: NgForm): void {
     if (form.valid) {
       if (this.id) {
-        this.service.editPhoto(this.id, this.imgObject).subscribe({
-          next: (result) => console.log(result),
-          error: (error) =>
-            console.error('Error updating photo:', error.message),
-        });
+        this.service.editPhoto(this.id, this.imgObject).subscribe();
       } else {
-        this.service.uploadPhoto(this.imgObject).subscribe({
-          next: (result) => console.log(result),
-          error: (error) => console.log('Error uploading photo', error.message),
-        });
+        this.service.uploadPhoto(this.imgObject).subscribe();
       }
-
       this.router.navigate(['/photos']);
     }
   }

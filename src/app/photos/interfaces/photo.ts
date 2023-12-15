@@ -1,4 +1,4 @@
-export interface IPhotos {
+export interface IPhoto {
   albumId: number;
   id: number;
   title: string;

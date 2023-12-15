@@ -1,26 +1,27 @@
 import { Injectable } from '@angular/core';
-import { IPhotos } from '../interfaces/photos';
+import { IPhoto } from '../interfaces/photo';
 import { Observable, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PhotosService {
-  constructor(private http: HttpClient) {}
+  public errMessage: string = 'Oops something went wrong';
+  constructor(private http: HttpClient, private router: Router) {}
 
-  private apiUrl: string =
-    'https://jsonplaceholder.typicode.com/albums/1/photos';
-
-  loadPhotos(): Observable<IPhotos[]> {
+  loadPhotos(pageIndex: number): Observable<IPhoto[]> {
     return this.http
-      .get<IPhotos[]>(this.apiUrl)
+      .get<IPhoto[]>(
+        `https://jsonplaceholder.typicode.com/albums/${pageIndex}/photos`
+      )
       .pipe(catchError(this.handleError));
   }
 
-  getPhotoByID(id: number): Observable<IPhotos> {
+  getPhotoByID(id: number): Observable<IPhoto> {
     return this.http
-      .get<IPhotos>(`https://jsonplaceholder.typicode.com/photos/${id}`)
+      .get<IPhoto>(`https://jsonplaceholder.typicode.com/photos/${id}`)
       .pipe(catchError(this.handleError));
   }
 
@@ -29,31 +30,33 @@ export class PhotosService {
     return this.http.delete<void>(deleteUrl).pipe(catchError(this.handleError));
   }
 
-  uploadPhoto(photo: IPhotos): Observable<IPhotos> {
+  uploadPhoto(photo: IPhoto): Observable<IPhoto> {
     return this.http
-      .post<IPhotos>(this.apiUrl, photo)
+      .post<IPhoto>(
+        'https://jsonplaceholder.typicode.com/albums/1/photos',
+        photo
+      )
       .pipe(catchError(this.handleError));
   }
 
   editPhoto(
     photoId: number,
-    updatedPhoto: Partial<IPhotos>
-  ): Observable<IPhotos> {
+    updatedPhoto: Partial<IPhoto>
+  ): Observable<IPhoto> {
     const editUrl = `https://jsonplaceholder.typicode.com/photos/${photoId}`;
 
     return this.http
-      .patch<IPhotos>(editUrl, updatedPhoto)
+      .patch<IPhoto>(editUrl, updatedPhoto)
       .pipe(catchError(this.handleError));
   }
 
-  handleError(err: HttpErrorResponse) {
-    let errMessage = '';
+  handleError = (err: HttpErrorResponse) => {
     if (err.error instanceof ErrorEvent) {
-      errMessage = `An error occured:  ${err.error.message}`;
+      this.errMessage = `An error occured:  ${err.message}`;
     } else {
-      errMessage = `Server returned code ${err.status}, error message is ${err.error.message}`;
+      this.errMessage = `Error: ${err.status}, ${err.message}`;
     }
-    console.log(errMessage);
-    return throwError(() => errMessage);
-  }
+    this.router.navigate(['/errorPage']);
+    return throwError(() => this.errMessage);
+  };
 }

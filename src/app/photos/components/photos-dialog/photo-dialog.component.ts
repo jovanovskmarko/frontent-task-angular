@@ -13,7 +13,7 @@ import { DialogData } from '../../interfaces/dialog-data';
 
 @Component({
   selector: 'photos-dialog',
-  templateUrl: 'photos-dialog.component.html',
+  templateUrl: 'photo-dialog.component.html',
   standalone: true,
   imports: [
     MatButtonModule,
@@ -32,12 +32,8 @@ export class PhotoDetailsDialog {
 
   confirmDelete(): void {
     this.photosService.deletePhoto(this.data.id).subscribe({
-      next: (result) => {
-        console.log(result);
+      next: () => {
         this.router.navigate(['/photos']);
-      },
-      error: (err) => {
-        console.error('Error deleting photo:', err);
       },
     });
   }

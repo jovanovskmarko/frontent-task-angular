@@ -1,25 +1,25 @@
 .container {
-margin-top: 10px;
+  margin-top: 10px;
 
 }
 
 .image-container {
-  width: 100%; /* Adjust the max-width as needed */
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .grid {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* Display three columns */
-  gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 48px;
 }
 
 .card {
-  max-width: 250px;
+  width: 100%;
   margin-bottom: 40px;
   display: flex;
-
   align-items: center;
 }
 

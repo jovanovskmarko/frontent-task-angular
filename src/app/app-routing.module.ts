@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PhotosComponent } from './photos/components/photos-component/photos.component';
-import { PhotosDetailComponent } from './photos/components/photos-detail/photos-detail.component';
+import { PhotoComponent } from './photos/components/photo-component/photo.component';
+import { PhotosDetailComponent } from './photos/components/photos-detail/photo-detail.component';
 import { FormComponent } from './shared/components/form/form.component';
+import { ErrorComponent } from './shared/components/error/error.component';
 
 const routes: Routes = [
-  { path: 'photos', component: PhotosComponent },
+  { path: 'errorPage', component: ErrorComponent },
+  { path: 'photos', component: PhotoComponent },
   { path: 'photos/upload', component: FormComponent },
   { path: 'photos/:id', component: PhotosDetailComponent },
   { path: 'photos/:id/edit', component: FormComponent },
