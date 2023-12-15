@@ -20,7 +20,7 @@ To run the Micro Instagram locally, follow these steps:
 
 2. **Install node_modules:**
 
-Run `npm i`. The application will install the node_modules.
+   Run `npm i`. The application will install the node_modules.
 
 3. **Run the app:**
 
