@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
-import { PhotosService } from '../../service/photos.service';
-import { MatDialog } from '@angular/material/dialog';
-import { PhotoDetailsDialog } from '../photos-dialog/photo-dialog.component';
-import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 import { IPhoto } from '../../interfaces/photo';
+import { PhotosService } from '../../service/photos.service';
+import { PhotoDetailsDialog } from '../photos-dialog/photo-dialog.component';
 
 @Component({
   templateUrl: './photo-detail.component.html',
@@ -30,8 +30,7 @@ export class PhotosDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: PhotosService,
-    public dialog: MatDialog,
-    private router: Router
+    public dialog: MatDialog
   ) {}
 
   openDialog(): void {
